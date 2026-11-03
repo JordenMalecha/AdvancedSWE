@@ -18,7 +18,7 @@
  */
 package org.revager.gui.dialogs;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -149,8 +149,8 @@ public class ExportCSVDialog extends AbstractDialog {
 	public ExportCSVDialog(Frame parent) {
 		super(parent);
 
-		setTitle(_("Export Findings into a CSV File"));
-		setDescription(_("Here you can export the findings into a CSV file."));
+		setTitle(translate("Export Findings into a CSV File"));
+		setDescription(translate("Here you can export the findings into a CSV file."));
 		setIcon(Data.getInstance().getIcon("CSVExport_50x50.png"));
 
 		setHelpChapter("findings_management", "5");
@@ -180,7 +180,7 @@ public class ExportCSVDialog extends AbstractDialog {
 			csvProfileList = appData.getCSVProfiles();
 		} catch (DataException exc) {
 			JOptionPane.showMessageDialog(null,
-					GUITools.getMessagePane(exc.getMessage()), _("Error"),
+					GUITools.getMessagePane(exc.getMessage()), translate("Error"),
 					JOptionPane.ERROR_MESSAGE);
 
 			return;
@@ -219,7 +219,7 @@ public class ExportCSVDialog extends AbstractDialog {
 
 		ButtonGroup bttnGrp = new ButtonGroup();
 
-		String compRecStr = _("All findigs of this review");
+		String compRecStr = translate("All findigs of this review");
 		compRevRB = new JRadioButton(compRecStr, true);
 		compRevRB.addItemListener(new ItemListener() {
 			@Override
@@ -232,7 +232,7 @@ public class ExportCSVDialog extends AbstractDialog {
 		});
 		bttnGrp.add(compRevRB);
 
-		String localMeetStr = _("Export findings of a certain meeting only:");
+		String localMeetStr = translate("Export findings of a certain meeting only:");
 		JRadioButton localMeetRB = new JRadioButton(localMeetStr);
 		bttnGrp.add(localMeetRB);
 
@@ -240,8 +240,8 @@ public class ExportCSVDialog extends AbstractDialog {
 		localMeetCoBx.setEnabled(false);
 		reporterTxtFld = new JTextField();
 
-		JLabel reporterLbl = new JLabel(_("Bug Reporter:"));
-		JLabel csvProfileLbl = new JLabel(_("CSV Profile:"));
+		JLabel reporterLbl = new JLabel(translate("Bug Reporter:"));
+		JLabel csvProfileLbl = new JLabel(translate("CSV Profile:"));
 
 		GUITools.addComponent(this, gbl, compRevRB, 0, 0, 1, 1, 1.0, 0, 10, 10,
 				0, 10, GridBagConstraints.HORIZONTAL,
@@ -269,7 +269,7 @@ public class ExportCSVDialog extends AbstractDialog {
 				10, 0, 10, GridBagConstraints.BOTH,
 				GridBagConstraints.NORTHWEST);
 
-		abortBttn = new JButton(_("Abort"), Data.getInstance().getIcon(
+		abortBttn = new JButton(translate("Abort"), Data.getInstance().getIcon(
 				"buttonCancel_16x16.png"));
 		abortBttn.addActionListener(new ActionListener() {
 			@Override
@@ -278,7 +278,7 @@ public class ExportCSVDialog extends AbstractDialog {
 			}
 		});
 
-		exportBttn = new JButton(_("Export"), Data.getInstance().getIcon(
+		exportBttn = new JButton(translate("Export"), Data.getInstance().getIcon(
 				"buttonOk_16x16.png"));
 		exportBttn.addActionListener(new ActionListener() {
 			@Override
@@ -301,7 +301,7 @@ public class ExportCSVDialog extends AbstractDialog {
 					csvProfileCoBx.addItem(profile.getName());
 			} catch (DataException e) {
 				JOptionPane.showMessageDialog(null,
-						GUITools.getMessagePane(e.getMessage()), _("Error"),
+						GUITools.getMessagePane(e.getMessage()), translate("Error"),
 						JOptionPane.ERROR_MESSAGE);
 			}
 		}
@@ -331,7 +331,7 @@ public class ExportCSVDialog extends AbstractDialog {
 			validSeverityMappingsList = selProfile.getValidSeverityMappings();
 		} catch (DataException e) {
 			JOptionPane.showMessageDialog(null,
-					GUITools.getMessagePane(e.getMessage()), _("Error"),
+					GUITools.getMessagePane(e.getMessage()), translate("Error"),
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}

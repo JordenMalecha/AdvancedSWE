@@ -1,6 +1,6 @@
 package org.revager.gui.aspects_manager;
 
-import it.cnr.imaa.essi.lablib.gui.checkboxtree.CheckboxTreeCellRenderer;
+import eu.essilab.lablib.checkboxtree.CheckboxTreeCellRenderer;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

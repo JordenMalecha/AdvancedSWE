@@ -18,7 +18,7 @@
  */
 package org.revager.gui.aspects_manager;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -73,7 +73,7 @@ public class EditAspectPopupWindow extends JDialog {
 		RESI_ASPECT, APP_ASPECT, APP_CATALOG;
 	}
 
-	private static final String STANDARD_CATEGORY = _("(No Category)");
+	private static final String STANDARD_CATEGORY = translate("(No Category)");
 
 	private AspectManagement aspMgmt = Application.getInstance()
 			.getAspectMgmt();
@@ -151,7 +151,7 @@ public class EditAspectPopupWindow extends JDialog {
 
 		// setUndecorated(true);
 		setResizable(false);
-		setTitle(_("RevAger"));
+		setTitle(translate("RevAger"));
 
 		setModal(true);
 	}
@@ -186,8 +186,8 @@ public class EditAspectPopupWindow extends JDialog {
 		try {
 			switch (mode) {
 			case RESI_ASPECT:
-				title = _("Please enter the required information of the aspect into the provided text fields.");
-				labelTitle.setText(_("Directive of the aspect:"));
+				title = translate("Please enter the required information of the aspect into the provided text fields.");
+				labelTitle.setText(translate("Directive of the aspect:"));
 
 				textFieldTitle.setText(aspect.getDirective());
 				textAreaDescription.setText(aspect.getDescription());
@@ -200,8 +200,8 @@ public class EditAspectPopupWindow extends JDialog {
 
 				break;
 			case APP_ASPECT:
-				title = _("Please enter the required information of the aspect into the provided text fields.");
-				labelTitle.setText(_("Directive of the aspect:"));
+				title = translate("Please enter the required information of the aspect into the provided text fields.");
+				labelTitle.setText(translate("Directive of the aspect:"));
 
 				textFieldTitle.setText(appAspect.getDirective());
 				textAreaDescription.setText(appAspect.getDescription());
@@ -229,8 +229,8 @@ public class EditAspectPopupWindow extends JDialog {
 
 				break;
 			case APP_CATALOG:
-				title = _("Please enter the required information of the catalog into the provided text fields.");
-				labelTitle.setText(_("Name of the catalog:"));
+				title = translate("Please enter the required information of the catalog into the provided text fields.");
+				labelTitle.setText(translate("Name of the catalog:"));
 
 				textFieldTitle.setText(appCatalog.getName());
 				textAreaDescription.setText(appCatalog.getDescription());
@@ -244,7 +244,7 @@ public class EditAspectPopupWindow extends JDialog {
 			}
 		} catch (DataException e) {
 			JOptionPane.showMessageDialog(this,
-					GUITools.getMessagePane(e.getMessage()), _("Error"),
+					GUITools.getMessagePane(e.getMessage()), translate("Error"),
 					JOptionPane.ERROR_MESSAGE);
 
 			return;
@@ -259,9 +259,9 @@ public class EditAspectPopupWindow extends JDialog {
 
 		panelBase.add(textTitle, BorderLayout.NORTH);
 
-		JLabel labelDescription = new JLabel(_("Description:"));
-		JLabel labelCatalog = new JLabel(_("Catalog:"));
-		JLabel labelCategory = new JLabel(_("Category:"));
+		JLabel labelDescription = new JLabel(translate("Description:"));
+		JLabel labelCatalog = new JLabel(translate("Catalog:"));
+		JLabel labelCategory = new JLabel(translate("Category:"));
 
 		int ins = 5;
 
@@ -306,7 +306,7 @@ public class EditAspectPopupWindow extends JDialog {
 				"buttonCancel_24x24_0.png"));
 		buttonAbort.setRolloverIcon(Data.getInstance().getIcon(
 				"buttonCancel_24x24.png"));
-		buttonAbort.setToolTipText(_("Abort"));
+		buttonAbort.setToolTipText(translate("Abort"));
 		buttonAbort.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -321,7 +321,7 @@ public class EditAspectPopupWindow extends JDialog {
 				.getIcon("buttonOk_24x24_0.png"));
 		buttonConfirm.setRolloverIcon(Data.getInstance().getIcon(
 				"buttonOk_24x24.png"));
-		buttonConfirm.setToolTipText(_("Confirm"));
+		buttonConfirm.setToolTipText(translate("Confirm"));
 		buttonConfirm.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -400,7 +400,7 @@ public class EditAspectPopupWindow extends JDialog {
 				} catch (DataException exc) {
 					JOptionPane.showMessageDialog(((JButton) e.getSource())
 							.getParent().getParent(), GUITools
-							.getMessagePane(exc.getMessage()), _("Error"),
+							.getMessagePane(exc.getMessage()), translate("Error"),
 							JOptionPane.ERROR_MESSAGE);
 
 					return;

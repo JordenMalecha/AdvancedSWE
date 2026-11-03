@@ -18,7 +18,7 @@
  */
 package org.revager.gui.actions.attendee;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.awt.event.ActionEvent;
 
@@ -45,10 +45,10 @@ public class SelectAttOutOfDirAction extends AbstractAction {
 	public void actionPerformed(ActionEvent ev) {
 		if (UI.getInstance().getAttendeeDialog().isVisible())
 			popup = new DirectoryPopupWindow(UI.getInstance()
-					.getAttendeeDialog(), _("Directory"));
+					.getAttendeeDialog(), translate("Directory"));
 		else if (UI.getInstance().getAssistantDialog().isVisible())
 			popup = new DirectoryPopupWindow(UI.getInstance()
-					.getAssistantDialog(), _("Directory"));
+					.getAssistantDialog(), translate("Directory"));
 		popup.setVisible(true);
 
 		if (popup.getButtonClicked() == DirectoryPopupWindow.ButtonClicked.OK) {

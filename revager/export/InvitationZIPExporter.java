@@ -18,7 +18,7 @@
  */
 package org.revager.export;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.io.File;
 import java.io.IOException;
@@ -56,7 +56,7 @@ public class InvitationZIPExporter {
 	 * The review info document.
 	 */
 	private static final File REVIEW_INFO_DOC = new File(WORK_DIRECTORY,
-			_("Review_Information.pdf"));
+			translate("Review_Information.pdf"));
 
 	/**
 	 * The meeting.
@@ -140,7 +140,7 @@ public class InvitationZIPExporter {
 			 * Not part of unit testing because this exception is only thrown if
 			 * an internal error occurs.
 			 */
-			throw new ExportException(_("Cannot store invitation as ZIP file."));
+			throw new ExportException(translate("Cannot store invitation as ZIP file."));
 		}
 	}
 }

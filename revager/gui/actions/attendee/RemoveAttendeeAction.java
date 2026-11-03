@@ -18,7 +18,7 @@
  */
 package org.revager.gui.actions.attendee;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.awt.event.ActionEvent;
 import java.text.MessageFormat;
@@ -75,12 +75,12 @@ public class RemoveAttendeeAction extends AbstractAction {
 			}
 
 			String compTxt = MessageFormat
-					.format(_("Cannot remove the selected attendee ({0}) from the current review because he/she is part of at least one meeting: {1}"),
+					.format(translate("Cannot remove the selected attendee ({0}) from the current review because he/she is part of at least one meeting: {1}"),
 							nameTxt, meetTxt);
 
 			JOptionPane.showMessageDialog(org.revager.gui.UI.getInstance()
 					.getMainFrame(), GUITools.getMessagePane(compTxt),
-					_("Attention!"), JOptionPane.OK_OPTION);
+					translate("Attention!"), JOptionPane.OK_OPTION);
 		}
 	}
 

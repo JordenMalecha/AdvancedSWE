@@ -18,7 +18,7 @@
  */
 package org.revager.export;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.text.MessageFormat;
 import java.util.HashMap;
@@ -151,7 +151,7 @@ public class FindingsCSVExporter extends CSVExporter {
 				switch (col) {
 				case DESCRIPTION:
 					csvLine[index] = f.getDescription() + " ("
-							+ _("Review Findings") + " " + f.getId() + ")";
+							+ translate("Review Findings") + " " + f.getId() + ")";
 					break;
 
 				case REFERENCE:
@@ -167,7 +167,7 @@ public class FindingsCSVExporter extends CSVExporter {
 					}
 
 					String references = MessageFormat
-							.format(_("Finding {0} of Review \"{1}\" ** Product: {2} (Version: {3}) **** {4}"),
+							.format(translate("Finding {0} of Review \"{1}\" ** Product: {2} (Version: {3}) **** {4}"),
 									Integer.toString(f.getId()),
 									revMgmt.getReviewName(),
 									revMgmt.getProductName(),

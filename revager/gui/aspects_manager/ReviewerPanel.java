@@ -18,7 +18,7 @@
  */
 package org.revager.gui.aspects_manager;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.awt.Component;
 import java.awt.GridBagConstraints;
@@ -155,7 +155,7 @@ public class ReviewerPanel extends JPanel implements Observer {
 		buttonRemove = GUITools.newImageButton(
 				Data.getInstance().getIcon("remove_25x25_0.png"), Data
 						.getInstance().getIcon("remove_25x25.png"));
-		buttonRemove.setToolTipText(_("Remove selected aspect"));
+		buttonRemove.setToolTipText(translate("Remove selected aspect"));
 		buttonRemove.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -181,13 +181,13 @@ public class ReviewerPanel extends JPanel implements Observer {
 		buttonEdit = GUITools.newImageButton(
 				Data.getInstance().getIcon("edit_25x25_0.png"), Data
 						.getInstance().getIcon("edit_25x25.png"));
-		buttonEdit.setToolTipText(_("Edit selected aspect"));
+		buttonEdit.setToolTipText(translate("Edit selected aspect"));
 		buttonEdit.addActionListener(editAction);
 
 		buttonPushUp = GUITools.newImageButton(
 				Data.getInstance().getIcon("upArrow_25x25_0.png"), Data
 						.getInstance().getIcon("upArrow_25x25.png"));
-		buttonPushUp.setToolTipText(_("Push up item"));
+		buttonPushUp.setToolTipText(translate("Push up item"));
 		buttonPushUp.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -209,7 +209,7 @@ public class ReviewerPanel extends JPanel implements Observer {
 		buttonPushDown = GUITools.newImageButton(
 				Data.getInstance().getIcon("downArrow_25x25_0.png"), Data
 						.getInstance().getIcon("downArrow_25x25.png"));
-		buttonPushDown.setToolTipText(_("Push down item"));
+		buttonPushDown.setToolTipText(translate("Push down item"));
 		buttonPushDown.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

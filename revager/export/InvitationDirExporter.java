@@ -18,7 +18,7 @@
  */
 package org.revager.export;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.io.File;
 import java.io.IOException;
@@ -89,7 +89,7 @@ public class InvitationDirExporter {
 		this.directory = new File(dirPath);
 		this.attachProdExtRefs = attachProdExtRefs;
 
-		this.reviewInfoDoc = new File(directory, _("Review_Information.pdf"));
+		this.reviewInfoDoc = new File(directory, translate("Review_Information.pdf"));
 	}
 
 	/**
@@ -130,7 +130,7 @@ public class InvitationDirExporter {
 					 * thrown if an internal error occurs.
 					 */
 					throw new ExportException(
-							_("Cannot store invitation as directory."));
+							translate("Cannot store invitation as directory."));
 				}
 			}
 		}

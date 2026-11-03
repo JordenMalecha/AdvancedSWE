@@ -18,7 +18,7 @@
  */
 package org.revager.gui.workers;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.awt.Desktop;
 import java.io.File;
@@ -73,7 +73,7 @@ public class ExportPDFProtocolWorker extends SwingWorker<Void, Void> {
 		String fileName = null;
 
 		if (UI.getInstance().getExportPDFProtocolDialog().exportRev()) {
-			fileName = sdf.format(new Date()) + "_" + _("Review_Findings_List");
+			fileName = sdf.format(new Date()) + "_" + translate("Review_Findings_List");
 		} else {
 			int year = meet.getProtocol().getDate().get(Calendar.YEAR);
 			int month = meet.getProtocol().getDate().get(Calendar.MONTH) + 1;
@@ -91,7 +91,7 @@ public class ExportPDFProtocolWorker extends SwingWorker<Void, Void> {
 			}
 
 			fileName = year + "-" + monthStr + "-" + dayStr + "_"
-					+ _("Review_Meeting_Findings_List");
+					+ translate("Review_Meeting_Findings_List");
 		}
 
 		fileChooser.setFile(new File(fileName));
@@ -148,12 +148,12 @@ public class ExportPDFProtocolWorker extends SwingWorker<Void, Void> {
 						if (protFrame.isVisible()) {
 							protFrame
 									.setStatusMessage(
-											_("The findings list has been exported as a PDF file successfully."),
+											translate("The findings list has been exported as a PDF file successfully."),
 											false);
 						} else {
 							mainFrame
 									.setStatusMessage(
-											_("The findings list has been exported as a PDF file successfully."),
+											translate("The findings list has been exported as a PDF file successfully."),
 											false);
 						}
 					}
@@ -165,8 +165,8 @@ public class ExportPDFProtocolWorker extends SwingWorker<Void, Void> {
 					JOptionPane
 							.showMessageDialog(
 									null,
-									GUITools.getMessagePane(_("RevAger cannot find a PDF viewer on your machine. Please install a PDF Viewer, and open the findings list manually.")),
-									_("Error"), JOptionPane.ERROR_MESSAGE);
+									GUITools.getMessagePane(translate("RevAger cannot find a PDF viewer on your machine. Please install a PDF Viewer, and open the findings list manually.")),
+									translate("Error"), JOptionPane.ERROR_MESSAGE);
 				}
 			} catch (Exception exc) {
 				UI.getInstance().getExportPDFProtocolDialog()
@@ -181,7 +181,7 @@ public class ExportPDFProtocolWorker extends SwingWorker<Void, Void> {
 				});
 
 				JOptionPane.showMessageDialog(null,
-						GUITools.getMessagePane(exc.getMessage()), _("Error"),
+						GUITools.getMessagePane(exc.getMessage()), translate("Error"),
 						JOptionPane.ERROR_MESSAGE);
 			}
 

@@ -18,7 +18,7 @@
  */
 package org.revager.gui.workers;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -74,7 +74,7 @@ public class ImportAspectsWorker extends SwingWorker<Void, Void> {
 			@Override
 			public void run() {
 				UI.getInstance().getAspectsManagerFrame()
-						.switchToProgressMode(_("Importing aspects ..."));
+						.switchToProgressMode(translate("Importing aspects ..."));
 			}
 		});
 
@@ -87,11 +87,11 @@ public class ImportAspectsWorker extends SwingWorker<Void, Void> {
 				String dir = asp.getDirective();
 
 				if (cate.trim().equals("")) {
-					cate = _("(No Category)");
+					cate = translate("(No Category)");
 				}
 
 				if (dir.trim().equals("")) {
-					dir = _("(No Directive)");
+					dir = translate("(No Directive)");
 				}
 
 				catalog.newAspect(dir, asp.getDescription(), cate);
@@ -103,15 +103,15 @@ public class ImportAspectsWorker extends SwingWorker<Void, Void> {
 					UI.getInstance()
 							.getAspectsManagerFrame()
 							.setStatusMessage(
-									_("Aspects imported successfully."), false);
+									translate("Aspects imported successfully."), false);
 				}
 			});
 		} catch (Exception e) {
 			JOptionPane
 					.showMessageDialog(
 							null,
-							GUITools.getMessagePane(_("Cannot import selected file. The content isn't conform to the expected format (Resi XML Schema).")
-									+ "\n\n" + e.getMessage()), _("Error"),
+							GUITools.getMessagePane(translate("Cannot import selected file. The content isn't conform to the expected format (Resi XML Schema).")
+									+ "\n\n" + e.getMessage()), translate("Error"),
 							JOptionPane.ERROR_MESSAGE);
 
 			SwingUtilities.invokeLater(new Runnable() {
@@ -119,7 +119,7 @@ public class ImportAspectsWorker extends SwingWorker<Void, Void> {
 				public void run() {
 					UI.getInstance()
 							.getAspectsManagerFrame()
-							.setStatusMessage(_("Cannot import aspects!"),
+							.setStatusMessage(translate("Cannot import aspects!"),
 									false);
 				}
 			});

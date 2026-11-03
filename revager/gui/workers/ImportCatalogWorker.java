@@ -18,7 +18,7 @@
  */
 package org.revager.gui.workers;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.io.File;
 
@@ -75,7 +75,7 @@ public class ImportCatalogWorker extends SwingWorker<Void, Void> {
 			@Override
 			public void run() {
 				UI.getInstance().getAspectsManagerFrame()
-						.switchToProgressMode(_("Importing catalog ..."));
+						.switchToProgressMode(translate("Importing catalog ..."));
 			}
 		});
 
@@ -93,10 +93,10 @@ public class ImportCatalogWorker extends SwingWorker<Void, Void> {
 
 			while (firstTime || appData.getCatalog(catalogName) != null
 					|| catalogName.trim().equals("")) {
-				String title = _("Please enter a new name for the catalog:");
+				String title = translate("Please enter a new name for the catalog:");
 
 				if (!firstTime) {
-					title = _("There is a catalog with the given name already existing. Please enter a new one.")
+					title = translate("There is a catalog with the given name already existing. Please enter a new one.")
 							+ "\n\n" + title;
 				}
 
@@ -118,11 +118,11 @@ public class ImportCatalogWorker extends SwingWorker<Void, Void> {
 				String dir = asp.getDirective();
 
 				if (cate.trim().equals("")) {
-					cate = _("(No Category)");
+					cate = translate("(No Category)");
 				}
 
 				if (dir.trim().equals("")) {
-					dir = _("(No Directive)");
+					dir = translate("(No Directive)");
 				}
 
 				appCat.newAspect(dir, asp.getDescription(), cate);
@@ -136,15 +136,15 @@ public class ImportCatalogWorker extends SwingWorker<Void, Void> {
 					UI.getInstance()
 							.getAspectsManagerFrame()
 							.setStatusMessage(
-									_("Catalog imported successfully."), false);
+									translate("Catalog imported successfully."), false);
 				}
 			});
 		} catch (Exception e) {
 			JOptionPane
 					.showMessageDialog(
 							UI.getInstance().getAspectsManagerFrame(),
-							GUITools.getMessagePane(_("Cannot import selected file. The content is not conform to the expected format (Resi XML Schema).")
-									+ "\n\n" + e.getMessage()), _("Error"),
+							GUITools.getMessagePane(translate("Cannot import selected file. The content is not conform to the expected format (Resi XML Schema).")
+									+ "\n\n" + e.getMessage()), translate("Error"),
 							JOptionPane.ERROR_MESSAGE);
 
 			SwingUtilities.invokeLater(new Runnable() {
@@ -152,7 +152,7 @@ public class ImportCatalogWorker extends SwingWorker<Void, Void> {
 				public void run() {
 					UI.getInstance()
 							.getAspectsManagerFrame()
-							.setStatusMessage(_("Cannot import catalog!"),
+							.setStatusMessage(translate("Cannot import catalog!"),
 									false);
 				}
 			});

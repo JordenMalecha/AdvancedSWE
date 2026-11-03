@@ -1,6 +1,6 @@
 package org.revager.gui.findings_list.graphical_annotations;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -121,7 +121,7 @@ public class ImageEditorDialog extends AbstractDialog {
 			}
 		});
 
-		setTitle(_("Image Editor"));
+		setTitle(translate("Image Editor"));
 
 		ImageAnnotation annotation = ImageAnnotation.newEllipseAnnotation(
 				currentColor, DEFAULT_THICKNESS);
@@ -208,7 +208,7 @@ public class ImageEditorDialog extends AbstractDialog {
 				updateUndoRedoButtons();
 			}
 		});
-		buttonUndo.setToolTipText(_("Undo"));
+		buttonUndo.setToolTipText(translate("Undo"));
 
 		buttonRedo = GUITools.newImageButton(
 				Data.getInstance().getIcon("redo_50x50_0.png"), Data
@@ -220,7 +220,7 @@ public class ImageEditorDialog extends AbstractDialog {
 				updateUndoRedoButtons();
 			}
 		});
-		buttonRedo.setToolTipText(_("Redo"));
+		buttonRedo.setToolTipText(translate("Redo"));
 
 		buttonGroup = new ButtonGroup();
 
@@ -284,7 +284,7 @@ public class ImageEditorDialog extends AbstractDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				TextPopupWindow popup = new TextPopupWindow(
-						getImageEditorDialog(), _("Please enter some text"),
+						getImageEditorDialog(), translate("Please enter some text"),
 						currentText, false);
 
 				popup.setVisible(true);
@@ -349,7 +349,7 @@ public class ImageEditorDialog extends AbstractDialog {
 		registerInToolTipManager(panelThickness);
 
 		buttonColor = new JPanel();
-		buttonColor.setToolTipText(_("Color"));
+		buttonColor.setToolTipText(translate("Color"));
 		buttonColor.setPreferredSize(new Dimension(32, 32));
 		buttonColor.setBackground(currentColor);
 		buttonColor.setBorder(new MatteBorder(2, 2, 2, 2, Color.GRAY));
@@ -358,7 +358,7 @@ public class ImageEditorDialog extends AbstractDialog {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				Color selectedColor = JColorChooser.showDialog(
-						getImageEditorDialog(), _("Please choose a color"),
+						getImageEditorDialog(), translate("Please choose a color"),
 						currentColor);
 
 				if (selectedColor != null) {
@@ -406,7 +406,7 @@ public class ImageEditorDialog extends AbstractDialog {
 		panelTop.add(panelTopRight, BorderLayout.EAST);
 		setTopPanel(panelTop);
 
-		buttonCancel = new JButton(_("Abort"), Data.getInstance().getIcon(
+		buttonCancel = new JButton(translate("Abort"), Data.getInstance().getIcon(
 				"buttonCancel_16x16.png"));
 		buttonCancel.addActionListener(new ActionListener() {
 			@Override
@@ -421,7 +421,7 @@ public class ImageEditorDialog extends AbstractDialog {
 
 		addButton(buttonCancel);
 
-		buttonConfirm = new JButton(_("Confirm"), Data.getInstance().getIcon(
+		buttonConfirm = new JButton(translate("Confirm"), Data.getInstance().getIcon(
 				"buttonOk_16x16.png"));
 		buttonConfirm.addActionListener(new ActionListener() {
 			@Override
@@ -453,7 +453,7 @@ public class ImageEditorDialog extends AbstractDialog {
 				sliderThickness.getValue()));
 		panelThicknessPreview.revalidate();
 
-		String tooltip = _("Thickness") + ": "
+		String tooltip = translate("Thickness") + ": "
 				+ Integer.toString(sliderThickness.getValue()) + " px";
 
 		panelThickness.setToolTipText(tooltip);

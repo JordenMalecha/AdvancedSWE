@@ -18,7 +18,7 @@
  */
 package org.revager.gui.workers;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,7 +80,7 @@ public class AutoAspAllocWorker extends SwingWorker<Void, Void> {
 			@Override
 			public void run() {
 				UI.getInstance().getAspectsManagerFrame()
-						.switchToProgressMode(_("Allocating aspects ..."));
+						.switchToProgressMode(translate("Allocating aspects ..."));
 			}
 		});
 
@@ -101,7 +101,7 @@ public class AutoAspAllocWorker extends SwingWorker<Void, Void> {
 				@Override
 				public void run() {
 					UI.getInstance().getAspectsManagerFrame()
-							.setStatusMessage(_("Aspects allocated."), false);
+							.setStatusMessage(translate("Aspects allocated."), false);
 				}
 			});
 		} else {
@@ -110,7 +110,7 @@ public class AutoAspAllocWorker extends SwingWorker<Void, Void> {
 				public void run() {
 					UI.getInstance()
 							.getAspectsManagerFrame()
-							.setStatusMessage(_("Cannot allocate aspects!"),
+							.setStatusMessage(translate("Cannot allocate aspects!"),
 									false);
 				}
 			});

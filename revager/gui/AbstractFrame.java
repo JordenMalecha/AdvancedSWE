@@ -18,7 +18,7 @@
  */
 package org.revager.gui;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -210,7 +210,7 @@ public class AbstractFrame extends JFrame {
 	/**
 	 * The format time.
 	 */
-	private DateFormat formatTime = new SimpleDateFormat(_("HH:mm"));
+	private DateFormat formatTime = new SimpleDateFormat(translate("HH:mm"));
 
 	/**
 	 * The number of hints.
@@ -536,7 +536,7 @@ public class AbstractFrame extends JFrame {
 		/*
 		 * Construct the button to toggle the hints
 		 */
-		buttonHints.setToolTipText(_("Show/hide hints"));
+		buttonHints.setToolTipText(translate("Show/hide hints"));
 		buttonHints.setIcon(ICON_CLOSE_HINTS);
 		buttonHints.setRolloverIcon(ICON_CLOSE_HINTS_ROLLOVER);
 		buttonHints.setRolloverSelectedIcon(ICON_OPEN_HINTS_ROLLOVER);
@@ -553,7 +553,7 @@ public class AbstractFrame extends JFrame {
 		 */
 		statusMessage.setFont(FONT_TEXT);
 		statusMessage.setForeground(Color.DARK_GRAY);
-		setStatusMessage(_("No review in process."), false);
+		setStatusMessage(translate("No review in process."), false);
 
 		GridBagLayout gblBottom = new GridBagLayout();
 		panelBottom.setLayout(gblBottom);
@@ -804,7 +804,7 @@ public class AbstractFrame extends JFrame {
 				 * 
 				 * });
 				 * 
-				 * try { helpButton .setToolTipText(_("Open help chapter") + " "
+				 * try { helpButton .setToolTipText(translate("Open help chapter") + " "
 				 * + Data.getInstance() .getHelpData() .getChapterTitle(
 				 * HINT.getHelpChapter())); } catch (DataException e) {
 				 * helpButton.setVisible(false); }
@@ -891,7 +891,7 @@ public class AbstractFrame extends JFrame {
 	 * Switch to progress mode.
 	 */
 	public void switchToProgressMode() {
-		switchToProgressMode(_("Work in progress ..."));
+		switchToProgressMode(translate("Work in progress ..."));
 	}
 
 	/**

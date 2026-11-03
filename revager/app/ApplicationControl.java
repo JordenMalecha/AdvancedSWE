@@ -18,7 +18,7 @@
  */
 package org.revager.app;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.io.File;
 import java.io.IOException;
@@ -179,7 +179,7 @@ public class ApplicationControl {
 		if (filePath.startsWith(Data.getInstance().getAppData()
 				.getAppDataPath())) {
 			throw new ApplicationException(
-					_("It is not possible to store and open application data. Please choose another location."));
+					translate("It is not possible to store and open application data. Please choose another location."));
 		}
 
 		if (!filePath.trim().equals("")
@@ -226,7 +226,7 @@ public class ApplicationControl {
 		if (filePath.startsWith(Data.getInstance().getAppData()
 				.getAppDataPath())) {
 			throw new ApplicationException(
-					_("It is not possible to store and open application data. Please choose another location."));
+					translate("It is not possible to store and open application data. Please choose another location."));
 		}
 
 		if (filePath.toLowerCase().trim().endsWith(ENDING_ZIP)) {
@@ -399,13 +399,13 @@ public class ApplicationControl {
 		if (!reviewName.equals("")) {
 			reviewFileName += reviewName;
 		} else if (!productName.equals("")) {
-			reviewFileName += _("Review") + "_" + productName;
+			reviewFileName += translate("Review") + "_" + productName;
 
 			if (!productVersion.equals("")) {
 				reviewFileName += "_" + productVersion;
 			}
 		} else {
-			reviewFileName += _("Review");
+			reviewFileName += translate("Review");
 		}
 
 		return reviewFileName;

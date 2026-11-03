@@ -18,7 +18,7 @@
  */
 package org.revager.gui.models;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import javax.swing.table.AbstractTableModel;
 
@@ -83,6 +83,6 @@ public class FindExtRefTableModel extends AbstractTableModel {
 	 */
 	@Override
 	public String getColumnName(int column) {
-		return _("Files");
+		return translate("Files");
 	}
 }

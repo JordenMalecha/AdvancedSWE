@@ -18,7 +18,7 @@
  */
 package org.revager.app.model.appdata;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -142,7 +142,7 @@ public class AppAspect {
 			 * Not part of the unit testing, because this exception is only
 			 * thrown if there occurs an internal error.
 			 */
-			throw new DataException(_("Cannot add new aspect.")
+			throw new DataException(translate("Cannot add new aspect.")
 					+ " [DIRECTIVE = " + directive + "] " + e.getMessage());
 		}
 	}
@@ -220,7 +220,7 @@ public class AppAspect {
 			ps.close();
 			conn.close();
 		} catch (Exception e) {
-			throw new DataException(_("Cannot read directive of the aspect.")
+			throw new DataException(translate("Cannot read directive of the aspect.")
 					+ " [ASPECT_ID = " + this.id + "] " + e.getMessage());
 		}
 
@@ -256,7 +256,7 @@ public class AppAspect {
 			 * Not part of the unit testing, because this exception is only
 			 * thrown if there occurs an internal error.
 			 */
-			throw new DataException(_("Cannot store directive of the aspect.")
+			throw new DataException(translate("Cannot store directive of the aspect.")
 					+ " [ASPECT_ID = " + this.id + "] " + e.getMessage());
 		}
 	}
@@ -294,7 +294,7 @@ public class AppAspect {
 			 * Not part of the unit testing, because this exception is only
 			 * thrown if there occurs an internal error.
 			 */
-			throw new DataException(_("Cannot read description of the aspect.")
+			throw new DataException(translate("Cannot read description of the aspect.")
 					+ " [ASPECT_ID = " + this.id + "] " + e.getMessage());
 		}
 
@@ -331,7 +331,7 @@ public class AppAspect {
 			 * thrown if there occurs an internal error.
 			 */
 			throw new DataException(
-					_("Cannot store description of the aspect.")
+					translate("Cannot store description of the aspect.")
 							+ " [ASPECT_ID = " + this.id + "] "
 							+ e.getMessage());
 		}
@@ -410,7 +410,7 @@ public class AppAspect {
 			 * Not part of the unit testing, because this exception is only
 			 * thrown if there occurs an internal error.
 			 */
-			throw new DataException(_("Cannot read category of the aspect.")
+			throw new DataException(translate("Cannot read category of the aspect.")
 					+ " [ASPECT_ID = " + this.id + "] " + e.getMessage());
 		}
 
@@ -479,7 +479,7 @@ public class AppAspect {
 				 * thrown if there occurs an internal error.
 				 */
 				throw new DataException(
-						_("Cannot store category of the aspect.")
+						translate("Cannot store category of the aspect.")
 								+ " [ASPECT_ID = " + this.id + "] "
 								+ e.getMessage());
 			}
@@ -548,7 +548,7 @@ public class AppAspect {
 				 * Not part of the unit testing, because this exception is only
 				 * thrown if there occurs an internal error.
 				 */
-				throw new DataException(_("Cannot move selected aspect.")
+				throw new DataException(translate("Cannot move selected aspect.")
 						+ " [ASPECT_ID = " + this.id + "] " + e.getMessage());
 			}
 		}
@@ -632,7 +632,7 @@ public class AppAspect {
 			 * thrown if there occurs an internal error.
 			 */
 			throw new DataException(
-					_("Cannot get sorting position of the aspect.")
+					translate("Cannot get sorting position of the aspect.")
 							+ " [ASPECT_ID = " + this.id + "] "
 							+ e.getMessage());
 		}
@@ -678,7 +678,7 @@ public class AppAspect {
 			 * thrown if there occurs an internal error.
 			 */
 			throw new DataException(
-					_("Cannot get sorting position of the aspect.")
+					translate("Cannot get sorting position of the aspect.")
 							+ " [ASPECT_ID = " + this.id + "] "
 							+ e.getMessage());
 		}
@@ -724,7 +724,7 @@ public class AppAspect {
 			 * thrown if there occurs an internal error.
 			 */
 			throw new DataException(
-					_("Cannot get sorting position of the aspect.")
+					translate("Cannot get sorting position of the aspect.")
 							+ " [ASPECT_ID = " + this.id + "] "
 							+ e.getMessage());
 		}

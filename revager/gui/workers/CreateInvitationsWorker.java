@@ -18,7 +18,7 @@
  */
 package org.revager.gui.workers;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.awt.Desktop;
 import java.io.File;
@@ -64,7 +64,7 @@ public class CreateInvitationsWorker extends SwingWorker<Void, Void> {
 			SwingUtilities.invokeLater(new Runnable() {
 				@Override
 				public void run() {
-					dialog.switchToProgressMode(_("Creating invitation(s) ..."));
+					dialog.switchToProgressMode(translate("Creating invitation(s) ..."));
 				}
 			});
 
@@ -101,7 +101,7 @@ public class CreateInvitationsWorker extends SwingWorker<Void, Void> {
 
 				JOptionPane.showMessageDialog(UI.getInstance()
 						.getExportCSVDialog(), GUITools.getMessagePane(exc
-						.getMessage()), _("Error"), JOptionPane.ERROR_MESSAGE);
+						.getMessage()), translate("Error"), JOptionPane.ERROR_MESSAGE);
 			}
 
 			dialog.notifySwitchToEditMode();
@@ -115,7 +115,7 @@ public class CreateInvitationsWorker extends SwingWorker<Void, Void> {
 					UI.getInstance()
 							.getMainFrame()
 							.setStatusMessage(
-									_("The invitations have been created successfully."),
+									translate("The invitations have been created successfully."),
 									false);
 				}
 			});
@@ -127,14 +127,14 @@ public class CreateInvitationsWorker extends SwingWorker<Void, Void> {
 				public void run() {
 					if (dialog.getSelectedAttendees().isEmpty()) {
 						dialog.markAttScrollPane();
-						dialog.setMessage(_("You have to choose at least one attendee in order to create an invitation."));
+						dialog.setMessage(translate("You have to choose at least one attendee in order to create an invitation."));
 
 						return;
 					}
 
 					if (dialog.getSelectedPath().trim().equals("")) {
 						dialog.markPathTxtField();
-						dialog.setMessage(_("Please choose a directory where to store the invitation(s)."));
+						dialog.setMessage(translate("Please choose a directory where to store the invitation(s)."));
 
 						return;
 					}

@@ -18,7 +18,7 @@
  */
 package org.revager.gui.actions.assistant;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.awt.event.ActionEvent;
 
@@ -59,7 +59,7 @@ public class SelectLanguageAction extends AbstractAction {
 
 		if (UI.getInstance().getAssistantDialog().isVisible())
 			popup = new LanguagePopupWindow(UI.getInstance()
-					.getAssistantDialog(), _("Select language"));
+					.getAssistantDialog(), translate("Select language"));
 		popup.setVisible(true);
 
 		if (popup.getButtonClicked() == LanguagePopupWindow.ButtonClicked.OK) {
@@ -70,8 +70,8 @@ public class SelectLanguageAction extends AbstractAction {
 				int option = JOptionPane
 						.showConfirmDialog(
 								UI.getInstance().getAssistantDialog(),
-								GUITools.getMessagePane(_("You have to restart the application in order finalize the change of language. Restart now?")),
-								_("Question"),
+								GUITools.getMessagePane(translate("You have to restart the application in order finalize the change of language. Restart now?")),
+								translate("Question"),
 								JOptionPane.YES_NO_OPTION,
 								JOptionPane.QUESTION_MESSAGE);
 
@@ -81,7 +81,7 @@ public class SelectLanguageAction extends AbstractAction {
 			} catch (DataException e) {
 				JOptionPane.showMessageDialog(UI.getInstance()
 						.getAssistantDialog(), GUITools.getMessagePane(e
-						.getMessage()), _("Error"), JOptionPane.ERROR_MESSAGE);
+						.getMessage()), translate("Error"), JOptionPane.ERROR_MESSAGE);
 			}
 		}
 	}

@@ -18,7 +18,7 @@
  */
 package org.revager.gui.actions.meeting;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -44,7 +44,7 @@ public class AddMeetingAction extends AbstractAction {
 
 		putValue(SMALL_ICON, Data.getInstance()
 				.getIcon("menuNewMeet_16x16.png"));
-		putValue(NAME, _("Add Meeting"));
+		putValue(NAME, translate("Add Meeting"));
 		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_I, Toolkit
 				.getDefaultToolkit().getMenuShortcutKeyMask()));
 	}

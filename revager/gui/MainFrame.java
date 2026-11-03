@@ -18,7 +18,7 @@
  */
 package org.revager.gui;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -140,7 +140,7 @@ public class MainFrame extends AbstractFrame implements Observer {
 	private JButton editAttendee;
 
 	private DefaultMutableTreeNode nodeMeetingRoot = new DefaultMutableTreeNode(
-			_("All meetings"));
+			translate("All meetings"));
 	private DefaultTreeModel meetingsTreeModel = new DefaultTreeModel(
 			nodeMeetingRoot);
 	private JTree meetingsTree;
@@ -347,29 +347,29 @@ public class MainFrame extends AbstractFrame implements Observer {
 		/*
 		 * creating the left panel
 		 */
-		product = new JLabel(_("Product:"));
+		product = new JLabel(translate("Product:"));
 
 		textProduct.setFocusable(false);
 
-		reviewName = new JLabel(_("Title of the review:"));
+		reviewName = new JLabel(translate("Title of the review:"));
 		reviewName.setBorder(labelBorder);
 		textRevName.addKeyListener(updKeyListener);
 
-		reviewDescription = new JLabel(_("Description of the review:"));
+		reviewDescription = new JLabel(translate("Description of the review:"));
 		reviewDescription.setBorder(labelBorder);
 		textRevDesc.addKeyListener(updKeyListener);
 
 		scrollRevDesc = GUITools.setIntoScrllPn(textRevDesc);
 
 		commentReview.setIcon(Data.getInstance().getIcon("comment_16x16.png"));
-		commentReview.setText(_("Comments on the review"));
+		commentReview.setText(translate("Comments on the review"));
 		commentReview.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String comments = revMgmt.getReviewComments();
 
 				TextPopupWindow popup = new TextPopupWindow(UI.getInstance()
-						.getMainFrame(), _("Comments on the review:"),
+						.getMainFrame(), translate("Comments on the review:"),
 						comments, true);
 
 				popup.setVisible(true);
@@ -450,7 +450,7 @@ public class MainFrame extends AbstractFrame implements Observer {
 		 */
 		rightPanel.setBorder(new MatteBorder(0, 1, 0, 0, UI.SEPARATOR_COLOR));
 
-		meetings = new JLabel(_("Review Meetings:"));
+		meetings = new JLabel(translate("Review Meetings:"));
 
 		MeetingsTreeRenderer renderer = new MeetingsTreeRenderer();
 
@@ -587,7 +587,7 @@ public class MainFrame extends AbstractFrame implements Observer {
 		removeMeeting.setIcon(Data.getInstance().getIcon("remove_25x25_0.png"));
 		removeMeeting.setRolloverIcon(Data.getInstance().getIcon(
 				"remove_25x25.png"));
-		removeMeeting.setToolTipText(_("Remove"));
+		removeMeeting.setToolTipText(translate("Remove"));
 		removeMeeting.addActionListener(ActionRegistry.getInstance().get(
 				RemoveMeetingAction.class.getName()));
 		meetingButtons.add(removeMeeting);
@@ -596,7 +596,7 @@ public class MainFrame extends AbstractFrame implements Observer {
 		editMeeting.setIcon(Data.getInstance().getIcon("edit_25x25_0.png"));
 		editMeeting.setRolloverIcon(Data.getInstance()
 				.getIcon("edit_25x25.png"));
-		editMeeting.setToolTipText(_("Modify meeting"));
+		editMeeting.setToolTipText(translate("Modify meeting"));
 		editMeeting.addActionListener(ActionRegistry.getInstance().get(
 				EditMeetingAction.class.getName()));
 
@@ -607,7 +607,7 @@ public class MainFrame extends AbstractFrame implements Observer {
 				.getIcon("comment_25x25_0.png"));
 		commentMeeting.setRolloverIcon(Data.getInstance().getIcon(
 				"comment_25x25.png"));
-		commentMeeting.setToolTipText(_("Comment meeting"));
+		commentMeeting.setToolTipText(translate("Comment meeting"));
 		commentMeeting.addActionListener(ActionRegistry.getInstance().get(
 				CommentMeetingAction.class.getName()));
 		meetingButtons.add(commentMeeting);
@@ -617,7 +617,7 @@ public class MainFrame extends AbstractFrame implements Observer {
 				"protocolFrame_25x25_0.png"));
 		editProtocol.setRolloverIcon(Data.getInstance().getIcon(
 				"protocolFrame_25x25.png"));
-		editProtocol.setToolTipText(_("Open/create list of findings"));
+		editProtocol.setToolTipText(translate("Open/create list of findings"));
 		editProtocol.addActionListener(ActionRegistry.getInstance().get(
 				OpenFindingsListAction.class.getName()));
 
@@ -628,7 +628,7 @@ public class MainFrame extends AbstractFrame implements Observer {
 		removeMeeting.setEnabled(false);
 		editProtocol.setEnabled(false);
 
-		attendees = new JLabel(_("Attendees of the review:"));
+		attendees = new JLabel(translate("Attendees of the review:"));
 		attendees.setBorder(labelBorder);
 		attendeesTable = GUITools.newStandardTable(attendeesTableModel, false);
 		attendeesTable.getColumnModel().getColumn(2).setPreferredWidth(50);
@@ -747,7 +747,7 @@ public class MainFrame extends AbstractFrame implements Observer {
 				"removeAttendee_25x25_0.png"));
 		removeAttendee.setRolloverIcon(Data.getInstance().getIcon(
 				"removeAttendee_25x25.png"));
-		removeAttendee.setToolTipText(_("Remove attendee"));
+		removeAttendee.setToolTipText(translate("Remove attendee"));
 		removeAttendee.addActionListener(ActionRegistry.getInstance().get(
 				RemoveAttendeeAction.class.getName()));
 		attendeeButtons.add(removeAttendee);
@@ -757,7 +757,7 @@ public class MainFrame extends AbstractFrame implements Observer {
 				"editAttendee_25x25_0.png"));
 		editAttendee.setRolloverIcon(Data.getInstance().getIcon(
 				"editAttendee_25x25.png"));
-		editAttendee.setToolTipText(_("Modify attendee"));
+		editAttendee.setToolTipText(translate("Modify attendee"));
 		editAttendee.addActionListener(ActionRegistry.getInstance().get(
 				EditAttendeeAction.class.getName()));
 		attendeeButtons.add(editAttendee);
@@ -768,13 +768,13 @@ public class MainFrame extends AbstractFrame implements Observer {
 		removeAttendee.setEnabled(false);
 		editAttendee.setEnabled(false);
 
-		generalImpression = new JLabel(_("General impression of the product:"));
+		generalImpression = new JLabel(translate("General impression of the product:"));
 		generalImpression.setBorder(labelBorder);
 
 		scrollImpression = GUITools.setIntoScrllPn(impressionTxtArea);
 		impressionTxtArea.addKeyListener(updKeyListener);
 
-		recommendation = new JLabel(_("Final recommendation for the product:"));
+		recommendation = new JLabel(translate("Final recommendation for the product:"));
 		recommendation.setBorder(labelBorder);
 		recommendationBx.setEditable(true);
 		for (String rec : Data.getDefaultRecommendations()) {
@@ -856,7 +856,7 @@ public class MainFrame extends AbstractFrame implements Observer {
 		tbShowAssistant = GUITools.newImageButton(
 				Data.getInstance().getIcon("tbShowAssistant_50x50_0.png"), Data
 						.getInstance().getIcon("tbShowAssistant_50x50.png"));
-		tbShowAssistant.setToolTipText(_("Open RevAger Assistant"));
+		tbShowAssistant.setToolTipText(translate("Open RevAger Assistant"));
 		tbShowAssistant.addActionListener(ActionRegistry.getInstance().get(
 				OpenAssistantAction.class.getName()));
 
@@ -890,7 +890,7 @@ public class MainFrame extends AbstractFrame implements Observer {
 		// tbShowHelp = GUITools.newImageButton(
 		// Data.getInstance().getIcon("tbShowHelp_50x50_0.png"), Data
 		// .getInstance().getIcon("tbShowHelp_50x50.png"));
-		// tbShowHelp.setToolTipText(_("Open RevAger Help"));
+		// tbShowHelp.setToolTipText(translate("Open RevAger Help"));
 		// tbShowHelp.addActionListener(ActionRegistry.getInstance().get(
 		// OpenHelpAction.class.getName()));
 		//
@@ -996,7 +996,7 @@ public class MainFrame extends AbstractFrame implements Observer {
 		 * File menu
 		 */
 		menuFile = new JMenu();
-		menuFile.setText(_("File"));
+		menuFile.setText(translate("File"));
 
 		fileSelectModeItem = new JMenuItem(ActionRegistry.getInstance().get(
 				OpenAssistantAction.class.getName()));
@@ -1038,7 +1038,7 @@ public class MainFrame extends AbstractFrame implements Observer {
 		 * Edit menu
 		 */
 		menuEdit = new JMenu();
-		menuEdit.setText(_("Edit"));
+		menuEdit.setText(translate("Edit"));
 
 		newMeetingItem = new JMenuItem(ActionRegistry.getInstance().get(
 				AddMeetingAction.class.getName()));
@@ -1088,10 +1088,10 @@ public class MainFrame extends AbstractFrame implements Observer {
 		 * Extras menu
 		 */
 		menuSettings = new JMenu();
-		menuSettings.setText(_("Settings"));
+		menuSettings.setText(translate("Settings"));
 
 		appSettings = new JMenuItem();
-		appSettings.setText(_("Application Settings"));
+		appSettings.setText(translate("Application Settings"));
 		appSettings.setIcon(Data.getInstance().getIcon(
 				"menuAppSettings_16x16.png"));
 		appSettings.addActionListener(new ActionListener() {
@@ -1105,7 +1105,7 @@ public class MainFrame extends AbstractFrame implements Observer {
 		menuSettings.add(appSettings);
 
 		csvProfiles = new JMenuItem();
-		csvProfiles.setText(_("CSV Profiles"));
+		csvProfiles.setText(translate("CSV Profiles"));
 		csvProfiles.setIcon(Data.getInstance().getIcon(
 				"menuCsvSettings_16x16.png"));
 		csvProfiles.addActionListener(new ActionListener() {
@@ -1123,12 +1123,12 @@ public class MainFrame extends AbstractFrame implements Observer {
 		 * Help menu
 		 */
 		menuHelp = new JMenu();
-		menuHelp.setText(_("Help"));
+		menuHelp.setText(translate("Help"));
 
 		// TODO HELP IS CURRENTLY DISABLED!
 
 		// openHelp = new JMenuItem();
-		// openHelp.setText(_("Open Help Browser"));
+		// openHelp.setText(translate("Open Help Browser"));
 		// openHelp.setIcon(Data.getInstance().getIcon("menuHelp_16x16.png"));
 		// openHelp.addActionListener(ActionRegistry.getInstance().get(
 		// OpenHelpAction.class.getName()));
@@ -1136,7 +1136,7 @@ public class MainFrame extends AbstractFrame implements Observer {
 		// menuHelp.add(openHelp);
 
 		aboutHelp = new JMenuItem();
-		aboutHelp.setText(_("About RevAger"));
+		aboutHelp.setText(translate("About RevAger"));
 		aboutHelp.setIcon(Data.getInstance().getIcon("menuAbout_16x16.png"));
 		aboutHelp.addActionListener(new ActionListener() {
 			@Override
@@ -1261,7 +1261,7 @@ public class MainFrame extends AbstractFrame implements Observer {
 		String product = productName;
 
 		if (!productVersion.trim().equals("") && !productName.trim().equals("")) {
-			product += " (" + _("Version:") + " " + productVersion + ")";
+			product += " (" + translate("Version:") + " " + productVersion + ")";
 		}
 
 		textProduct.setText(product);
@@ -1294,26 +1294,26 @@ public class MainFrame extends AbstractFrame implements Observer {
 	 */
 	private void createHints() {
 		hintStart = new HintItem(
-				_("First of all we recommend to specify the product and the review's title."),
+				translate("First of all we recommend to specify the product and the review's title."),
 				HintItem.WARNING);
 
 		hintMeetAtt = new HintItem(
-				_("You should create a meeting and add the attendees of the review by using the corresponding buttons."),
+				translate("You should create a meeting and add the attendees of the review by using the corresponding buttons."),
 				HintItem.WARNING);
 
 		hintOk = new HintItem(
-				_("All required information for the review are present."),
+				translate("All required information for the review are present."),
 				HintItem.OK);
 		hintSecondOk = new HintItem(
-				_("Now you can export the list of findings either for the whole review or a single review meeting."),
+				translate("Now you can export the list of findings either for the whole review or a single review meeting."),
 				HintItem.INFO);
 
 		hintListOfFindings = new HintItem(
-				_("You can open the list of findings by selecting the corresponding meeting and clicking the 'Open findings list' button."),
+				translate("You can open the list of findings by selecting the corresponding meeting and clicking the 'Open findings list' button."),
 				HintItem.INFO);
 
 		hintInfoAssistant = new HintItem(
-				_("You can open the RevAger Assistant by clicking on the 'Open Assistant' button."),
+				translate("You can open the RevAger Assistant by clicking on the 'Open Assistant' button."),
 				HintItem.INFO);
 	}
 
@@ -1592,12 +1592,12 @@ public class MainFrame extends AbstractFrame implements Observer {
 			if (UI.getInstance().getStatus() != Status.NO_FILE_LOADED) {
 				if (revName != null) {
 					if (revName.trim().equals("")) {
-						title = _("New Review");
+						title = translate("New Review");
 					} else {
 						title = revName;
 					}
 				} else {
-					title = _("New Review");
+					title = translate("New Review");
 				}
 
 				title += " - ";
@@ -1762,7 +1762,7 @@ public class MainFrame extends AbstractFrame implements Observer {
 			tbProtocolMode.setEnabled(true);
 			editProtocol.setEnabled(true);
 
-			removeMeeting.setToolTipText(_("Remove meeting"));
+			removeMeeting.setToolTipText(translate("Remove meeting"));
 		} else if (getSelectedProtocol() != null) {
 			commentMeeting.setEnabled(false);
 			editMeeting.setEnabled(false);
@@ -1772,7 +1772,7 @@ public class MainFrame extends AbstractFrame implements Observer {
 			tbProtocolMode.setEnabled(true);
 			editProtocol.setEnabled(true);
 
-			removeMeeting.setToolTipText(_("Remove list of findings"));
+			removeMeeting.setToolTipText(translate("Remove list of findings"));
 		} else {
 			commentMeeting.setEnabled(false);
 			editMeeting.setEnabled(false);
@@ -1782,7 +1782,7 @@ public class MainFrame extends AbstractFrame implements Observer {
 			tbProtocolMode.setEnabled(false);
 			editProtocol.setEnabled(false);
 
-			removeMeeting.setToolTipText(_("Remove"));
+			removeMeeting.setToolTipText(translate("Remove"));
 		}
 	}
 

@@ -18,7 +18,7 @@
  */
 package org.revager.gui.dialogs;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.awt.Container;
 import java.awt.Dimension;
@@ -69,7 +69,7 @@ public class ManageSeveritiesDialog extends AbstractDialog {
 	private JTable severityTbl = GUITools.newStandardTable(stm, false);
 
 	private JLabel nameLbl = new JLabel(
-			_("Severities for the findings in this review:"));
+			translate("Severities for the findings in this review:"));
 
 	private JPanel buttonPanel = new JPanel(new GridLayout(7, 1));
 
@@ -140,7 +140,7 @@ public class ManageSeveritiesDialog extends AbstractDialog {
 		addSeverity.setIcon(Data.getInstance().getIcon("add_25x25_0.png"));
 		addSeverity
 				.setRolloverIcon(Data.getInstance().getIcon("add_25x25.png"));
-		addSeverity.setToolTipText(_("Add Severity"));
+		addSeverity.setToolTipText(translate("Add Severity"));
 		addSeverity.addActionListener(ActionRegistry.getInstance().get(
 				AddSeverityAction.class.getName()));
 		buttonPanel.add(addSeverity);
@@ -150,7 +150,7 @@ public class ManageSeveritiesDialog extends AbstractDialog {
 				.setIcon(Data.getInstance().getIcon("remove_25x25_0.png"));
 		removeSeverity.setRolloverIcon(Data.getInstance().getIcon(
 				"remove_25x25.png"));
-		removeSeverity.setToolTipText(_("Remove Severity"));
+		removeSeverity.setToolTipText(translate("Remove Severity"));
 		removeSeverity.addActionListener(ActionRegistry.getInstance().get(
 				RemoveSeverityAction.class.getName()));
 		buttonPanel.add(removeSeverity);
@@ -159,7 +159,7 @@ public class ManageSeveritiesDialog extends AbstractDialog {
 		editSeverity.setIcon(Data.getInstance().getIcon("edit_25x25_0.png"));
 		editSeverity.setRolloverIcon(Data.getInstance().getIcon(
 				"edit_25x25.png"));
-		editSeverity.setToolTipText(_("Edit Severity"));
+		editSeverity.setToolTipText(translate("Edit Severity"));
 		editSeverity.addActionListener(ActionRegistry.getInstance().get(
 				EditSeverityAction.class.getName()));
 		buttonPanel.add(editSeverity);
@@ -168,7 +168,7 @@ public class ManageSeveritiesDialog extends AbstractDialog {
 		severityTop.setIcon(Data.getInstance().getIcon("pushTop_25x25_0.png"));
 		severityTop.setRolloverIcon(Data.getInstance().getIcon(
 				"pushTop_25x25.png"));
-		severityTop.setToolTipText(_("Push to the top"));
+		severityTop.setToolTipText(translate("Push to the top"));
 		severityTop.addActionListener(ActionRegistry.getInstance().get(
 				PushSeverityTopAction.class.getName()));
 		buttonPanel.add(severityTop);
@@ -177,7 +177,7 @@ public class ManageSeveritiesDialog extends AbstractDialog {
 		severityUp.setIcon(Data.getInstance().getIcon("upArrow_25x25_0.png"));
 		severityUp.setRolloverIcon(Data.getInstance().getIcon(
 				"upArrow_25x25.png"));
-		severityUp.setToolTipText(_("Push up"));
+		severityUp.setToolTipText(translate("Push up"));
 		severityUp.addActionListener(ActionRegistry.getInstance().get(
 				PushSeverityUpAction.class.getName()));
 		buttonPanel.add(severityUp);
@@ -187,7 +187,7 @@ public class ManageSeveritiesDialog extends AbstractDialog {
 				.getIcon("downArrow_25x25_0.png"));
 		severityDown.setRolloverIcon(Data.getInstance().getIcon(
 				"downArrow_25x25.png"));
-		severityDown.setToolTipText(_("Push down"));
+		severityDown.setToolTipText(translate("Push down"));
 		severityDown.addActionListener(ActionRegistry.getInstance().get(
 				PushSeverityDownAction.class.getName()));
 		buttonPanel.add(severityDown);
@@ -197,7 +197,7 @@ public class ManageSeveritiesDialog extends AbstractDialog {
 				"pushBottom_25x25_0.png"));
 		severityBottom.setRolloverIcon(Data.getInstance().getIcon(
 				"pushBottom_25x25.png"));
-		severityBottom.setToolTipText(_("Push to the bottom"));
+		severityBottom.setToolTipText(translate("Push to the bottom"));
 		severityBottom.addActionListener(ActionRegistry.getInstance().get(
 				PushSeverityBottomAction.class.getName()));
 		buttonPanel.add(severityBottom);
@@ -252,8 +252,8 @@ public class ManageSeveritiesDialog extends AbstractDialog {
 	public ManageSeveritiesDialog(Frame parent) {
 		super(parent);
 
-		setTitle(_("Manage Severities"));
-		setDescription(_("The order of the severities for the findings affects the entire review and represents their relevance (decreasing from top to bottom in the list)."));
+		setTitle(translate("Manage Severities"));
+		setDescription(translate("The order of the severities for the findings affects the entire review and represents their relevance (decreasing from top to bottom in the list)."));
 		setIcon(Data.getInstance().getIcon("severities_50x50.png"));
 
 		setHelpChapter("severities_management");
@@ -265,7 +265,7 @@ public class ManageSeveritiesDialog extends AbstractDialog {
 		severityTbl.setShowGrid(false);
 		severityTbl.setShowHorizontalLines(true);
 
-		JButton close = new JButton(_("Close"), Data.getInstance().getIcon(
+		JButton close = new JButton(translate("Close"), Data.getInstance().getIcon(
 				"buttonClose_16x16.png"));
 		close.addActionListener(new ActionListener() {
 			@Override

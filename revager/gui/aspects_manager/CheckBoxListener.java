@@ -1,8 +1,8 @@
 package org.revager.gui.aspects_manager;
 
-import it.cnr.imaa.essi.lablib.gui.checkboxtree.CheckboxTree;
-import it.cnr.imaa.essi.lablib.gui.checkboxtree.TreeCheckingEvent;
-import it.cnr.imaa.essi.lablib.gui.checkboxtree.TreeCheckingListener;
+import eu.essilab.lablib.checkboxtree.CheckboxTree;
+import eu.essilab.lablib.checkboxtree.TreeCheckingEvent;
+import eu.essilab.lablib.checkboxtree.TreeCheckingListener;
 
 import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeModel;

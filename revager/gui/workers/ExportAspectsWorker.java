@@ -18,7 +18,7 @@
  */
 package org.revager.gui.workers;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.util.List;
 
@@ -76,7 +76,7 @@ public class ExportAspectsWorker extends SwingWorker<Void, Void> {
 			@Override
 			public void run() {
 				UI.getInstance().getAspectsManagerFrame()
-						.switchToProgressMode(_("Exporting aspects ..."));
+						.switchToProgressMode(translate("Exporting aspects ..."));
 			}
 		});
 
@@ -102,12 +102,12 @@ public class ExportAspectsWorker extends SwingWorker<Void, Void> {
 					UI.getInstance()
 							.getAspectsManagerFrame()
 							.setStatusMessage(
-									_("Aspects exported successfully."), false);
+									translate("Aspects exported successfully."), false);
 				}
 			});
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null,
-					GUITools.getMessagePane(e.getMessage()), _("Error"),
+					GUITools.getMessagePane(e.getMessage()), translate("Error"),
 					JOptionPane.ERROR_MESSAGE);
 
 			SwingUtilities.invokeLater(new Runnable() {
@@ -116,7 +116,7 @@ public class ExportAspectsWorker extends SwingWorker<Void, Void> {
 					UI.getInstance()
 							.getAspectsManagerFrame()
 							.setStatusMessage(
-									_("Cannot export the selected aspects!"),
+									translate("Cannot export the selected aspects!"),
 									false);
 				}
 			});

@@ -18,7 +18,7 @@
  */
 package org.revager.gui;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -100,7 +100,7 @@ public class HelpBrowserFrame extends AbstractFrame {
 
 		setStatusBarVisible(false);
 
-		setTitle(_("RevAger Online Help"));
+		setTitle(translate("RevAger Online Help"));
 
 		getContentPane().setLayout(new BorderLayout());
 
@@ -126,7 +126,7 @@ public class HelpBrowserFrame extends AbstractFrame {
 						.actionPerformed(null);
 			}
 		});
-		srchTxtFld.setToolTipText(_("Filter/Search - Enter search item ..."));
+		srchTxtFld.setToolTipText(translate("Filter/Search - Enter search item ..."));
 		srchTxtFld.setColumns(30);
 		srchTxtFld.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
 		srchTxtFld.setBackground(new Color(254, 255, 193));
@@ -134,12 +134,12 @@ public class HelpBrowserFrame extends AbstractFrame {
 		JButton reset = GUITools.newImageButton();
 		reset.setIcon(Data.getInstance().getIcon("undo_22x22_0.png"));
 		reset.setRolloverIcon(Data.getInstance().getIcon("undo_22x22.png"));
-		reset.setToolTipText(_("Reset filter"));
+		reset.setToolTipText(translate("Reset filter"));
 		reset.addActionListener(ActionRegistry.getInstance().get(
 				ResetHelpAction.class.getName()));
 
 		JTextArea descText = new JTextArea(
-				_("Please enter a search item into the input field to filter the contents:"));
+				translate("Please enter a search item into the input field to filter the contents:"));
 		descText.setEditable(false);
 		descText.setFont(FONT_TEXT);
 		descText.setForeground(Color.DARK_GRAY);
@@ -161,7 +161,7 @@ public class HelpBrowserFrame extends AbstractFrame {
 					.getChapterContent("start");
 		} catch (DataException startMissingError) {
 			JOptionPane.showMessageDialog(UI.getInstance().getMainFrame(),
-					_("Cannot load the start page."), _("Error occured"),
+					translate("Cannot load the start page."), translate("Error occured"),
 					JOptionPane.ERROR_MESSAGE);
 		}
 
@@ -357,8 +357,8 @@ public class HelpBrowserFrame extends AbstractFrame {
 	 * Sets the error page.
 	 */
 	private void setErrorPage() {
-		bodyPane.setText("<H1>" + _("Error") + "</H1>" + "<P>"
-				+ _("Cannot find help page.") + "</P>");
+		bodyPane.setText("<H1>" + translate("Error") + "</H1>" + "<P>"
+				+ translate("Cannot find help page.") + "</P>");
 	}
 
 	/**

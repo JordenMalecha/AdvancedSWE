@@ -18,7 +18,7 @@
  */
 package org.revager.gui.workers;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -67,7 +67,7 @@ public class LoadReviewWorker extends SwingWorker<Void, Void> {
 			public void run() {
 				mainframe.switchToProgressMode();
 
-				mainframe.setStatusMessage(_("Loading review ..."), true);
+				mainframe.setStatusMessage(translate("Loading review ..."), true);
 
 				UI.getInstance().getAssistantDialog().setVisible(false);
 			}
@@ -84,7 +84,7 @@ public class LoadReviewWorker extends SwingWorker<Void, Void> {
 				@Override
 				public void run() {
 					mainframe.setStatusMessage(
-							_("Review loaded successfully."), false);
+							translate("Review loaded successfully."), false);
 
 					mainframe.switchToEditMode();
 				}
@@ -95,7 +95,7 @@ public class LoadReviewWorker extends SwingWorker<Void, Void> {
 			SwingUtilities.invokeLater(new Runnable() {
 				@Override
 				public void run() {
-					mainframe.setStatusMessage(_("No review in process."),
+					mainframe.setStatusMessage(translate("No review in process."),
 							false);
 
 					mainframe.switchToClearMode();
@@ -104,8 +104,8 @@ public class LoadReviewWorker extends SwingWorker<Void, Void> {
 
 			JOptionPane.showMessageDialog(
 					null,
-					GUITools.getMessagePane(_("Cannot load review file.")
-							+ "\n\n" + e.getMessage()), _("Error"),
+					GUITools.getMessagePane(translate("Cannot load review file.")
+							+ "\n\n" + e.getMessage()), translate("Error"),
 					JOptionPane.ERROR_MESSAGE);
 
 			SwingUtilities.invokeLater(new Runnable() {

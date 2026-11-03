@@ -18,7 +18,7 @@
  */
 package org.revager.gui.dialogs;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.awt.Container;
 import java.awt.Cursor;
@@ -250,8 +250,8 @@ public class MeetingDialog extends AbstractDialog {
 		locationTxtFld.setBorder(UI.STANDARD_BORDER_INLINE);
 
 		if (currentMeeting == null) {
-			setTitle(_("Add Meeting"));
-			setDescription(_("Here you can enter all information for the new review meeting."));
+			setTitle(translate("Add Meeting"));
+			setDescription(translate("Here you can enter all information for the new review meeting."));
 			setIcon(Data.getInstance().getIcon("addMeeting_50x50.png"));
 			setHelpChapter("meetings_management", "1");
 
@@ -273,10 +273,10 @@ public class MeetingDialog extends AbstractDialog {
 			canceled.setEnabled(false);
 			canceled.setSelected(false);
 			canceledTxtArea
-					.setText(_("Please enter the reason for canceling the meeting..."));
+					.setText(translate("Please enter the reason for canceling the meeting..."));
 		} else {
-			setTitle(_("Edit Meeting"));
-			setDescription(_("Here you can edit all information of the selected meeting."));
+			setTitle(translate("Edit Meeting"));
+			setDescription(translate("Here you can edit all information of the selected meeting."));
 			setIcon(Data.getInstance().getIcon("editMeeting_50x50.png"));
 			setHelpChapter("meetings_management", "2");
 			canceled.setEnabled(true);
@@ -345,8 +345,8 @@ public class MeetingDialog extends AbstractDialog {
 	public MeetingDialog(Frame parent) {
 		super(parent);
 
-		setTitle(_("Edit Meeting"));
-		setDescription(_("Here you can edit all information of the selected meeting."));
+		setTitle(translate("Edit Meeting"));
+		setDescription(translate("Here you can edit all information of the selected meeting."));
 		setIcon(Data.getInstance().getIcon("editMeeting_64x64.png"));
 
 		GridBagLayout gbl = new GridBagLayout();
@@ -363,10 +363,10 @@ public class MeetingDialog extends AbstractDialog {
 		GUITools.formatSpinner(beginHSpinner, hideBorder);
 		GUITools.formatSpinner(beginMSpinner, hideBorder);
 
-		JLabel beginLbl = new JLabel(_("Period of time:"));
+		JLabel beginLbl = new JLabel(translate("Period of time:"));
 
 		JPanel spinnerPanel = new JPanel(gbl);
-		JLabel tillLabel = new JLabel(_("to"));
+		JLabel tillLabel = new JLabel(translate("to"));
 
 		GUITools.addComponent(spinnerPanel, gbl, beginHSpinner, 0, 0, 1, 1, 0,
 				0, 0, 0, 0, 0, GridBagConstraints.NONE,
@@ -394,15 +394,15 @@ public class MeetingDialog extends AbstractDialog {
 		 * 
 		 * creating elements for location, and canceled infos
 		 */
-		JLabel locationLbl = new JLabel(_("Location:"));
+		JLabel locationLbl = new JLabel(translate("Location:"));
 		locationTxtFld = new JTextField();
 
 		canceledTxtArea = new JTextArea(
-				_("Please enter the reason for canceling the meeting..."));
+				translate("Please enter the reason for canceling the meeting..."));
 		canceledTxtArea.setEnabled(false);
 
 		JScrollPane canceledScrllPn = GUITools.setIntoScrllPn(canceledTxtArea);
-		canceled = new JCheckBox(_("Canceled"));
+		canceled = new JCheckBox(translate("Canceled"));
 		canceled.setHorizontalTextPosition(SwingConstants.LEFT);
 		canceled.setMargin(new Insets(0, 0, 0, 0));
 		canceled.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -423,7 +423,7 @@ public class MeetingDialog extends AbstractDialog {
 		 * 
 		 * creating elements for the date of the meeting
 		 */
-		JLabel dateLbl = new JLabel(_("Date:"));
+		JLabel dateLbl = new JLabel(translate("Date:"));
 		dateTxtFld = new ObservingTextField();
 		dateTxtFld.setFocusable(false);
 		dateTxtFld.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -453,7 +453,7 @@ public class MeetingDialog extends AbstractDialog {
 		});
 
 		JButton datePicker = GUITools.newImageButton();
-		datePicker.setToolTipText(_("Select date"));
+		datePicker.setToolTipText(translate("Select date"));
 		datePicker
 				.setIcon(Data.getInstance().getIcon("datePicker_25x25_0.png"));
 		datePicker.setRolloverIcon(Data.getInstance().getIcon(
@@ -489,7 +489,7 @@ public class MeetingDialog extends AbstractDialog {
 		/*
 		 * buttons for accepting and canceling
 		 */
-		JButton cancel = new JButton(_("Abort"), Data.getInstance().getIcon(
+		JButton cancel = new JButton(translate("Abort"), Data.getInstance().getIcon(
 				"buttonCancel_16x16.png"));
 		cancel.addActionListener(new ActionListener() {
 			@Override
@@ -500,7 +500,7 @@ public class MeetingDialog extends AbstractDialog {
 
 		addButton(cancel);
 
-		JButton confirm = new JButton(_("Confirm"), Data.getInstance().getIcon(
+		JButton confirm = new JButton(translate("Confirm"), Data.getInstance().getIcon(
 				"buttonOk_16x16.png"));
 		confirm.addActionListener(ActionRegistry.getInstance().get(
 				ConfirmMeetingAction.class.getName()));

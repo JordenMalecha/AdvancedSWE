@@ -18,7 +18,7 @@
  */
 package org.revager.gui.workers;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.awt.BorderLayout;
 
@@ -134,7 +134,7 @@ public class LoadEmbeddedHelpWorker extends SwingWorker<String, Void> {
 					+ Data.getInstance().getHelpData()
 							.getChapterContent(this.helpChapter);
 		} catch (DataException exc) {
-			htmlString = "<h1>" + _("Cannot load help information.") + "</h1>";
+			htmlString = "<h1>" + translate("Cannot load help information.") + "</h1>";
 		}
 
 		helpPane.setText(htmlString);

@@ -18,7 +18,7 @@
  */
 package org.revager.gui.workers;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -53,7 +53,7 @@ public class RestoreReviewWorker extends SwingWorker<Void, Void> {
 
 				mainframe.switchToProgressMode();
 
-				mainframe.setStatusMessage(_("Restoring backup ..."), true);
+				mainframe.setStatusMessage(translate("Restoring backup ..."), true);
 			}
 		});
 
@@ -66,7 +66,7 @@ public class RestoreReviewWorker extends SwingWorker<Void, Void> {
 				@Override
 				public void run() {
 					mainframe.setStatusMessage(
-							_("Review restored successfully."), false);
+							translate("Review restored successfully."), false);
 
 					mainframe.switchToEditMode();
 				}
@@ -77,7 +77,7 @@ public class RestoreReviewWorker extends SwingWorker<Void, Void> {
 			SwingUtilities.invokeLater(new Runnable() {
 				@Override
 				public void run() {
-					mainframe.setStatusMessage(_("No review in process."),
+					mainframe.setStatusMessage(translate("No review in process."),
 							false);
 
 					mainframe.switchToClearMode();
@@ -92,8 +92,8 @@ public class RestoreReviewWorker extends SwingWorker<Void, Void> {
 
 			JOptionPane.showMessageDialog(
 					UI.getInstance().getMainFrame(),
-					GUITools.getMessagePane(_("Cannot restore review.")
-							+ "\n\n" + e.getMessage()), _("Error"),
+					GUITools.getMessagePane(translate("Cannot restore review.")
+							+ "\n\n" + e.getMessage()), translate("Error"),
 					JOptionPane.ERROR_MESSAGE);
 		}
 

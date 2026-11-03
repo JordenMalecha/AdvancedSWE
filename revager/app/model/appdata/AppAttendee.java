@@ -18,7 +18,7 @@
  */
 package org.revager.app.model.appdata;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -48,7 +48,7 @@ public class AppAttendee {
 	 * This is exception is thrown if an attendee could not be found.
 	 */
 	private DataException notFoundExc = new DataException(
-			_("Attendee does not exist!") + " [NAME = " + this.name
+			translate("Attendee does not exist!") + " [NAME = " + this.name
 					+ ", CONTACT = " + this.contact + "]");
 
 	/**
@@ -179,7 +179,7 @@ public class AppAttendee {
 			 * Not part of the unit testing, because this exception is only
 			 * thrown if there occurs an internal error.
 			 */
-			throw new DataException(_("Cannot add or get attendee.")
+			throw new DataException(translate("Cannot add or get attendee.")
 					+ " [NAME = " + name + "] " + e.getMessage());
 		}
 
@@ -319,7 +319,7 @@ public class AppAttendee {
 			}
 		} catch (Exception e) {
 			throw new DataException(
-					_("Cannot store attendee! There may be an attendee with the given name and contact information already existing.")
+					translate("Cannot store attendee! There may be an attendee with the given name and contact information already existing.")
 							+ " [NAME = "
 							+ this.name
 							+ ", CONTACT = "
@@ -363,7 +363,7 @@ public class AppAttendee {
 			 * thrown if there occurs an internal error.
 			 */
 			throw new DataException(
-					_("Cannot get strengths of the selected attendee.")
+					translate("Cannot get strengths of the selected attendee.")
 							+ " [NAME = " + this.name + "] " + e.getMessage());
 		}
 
@@ -409,7 +409,7 @@ public class AppAttendee {
 			 * thrown if there occurs an internal error.
 			 */
 			throw new DataException(
-					_("Cannot detect wether the given category is a strength of the attendee or not.")
+					translate("Cannot detect wether the given category is a strength of the attendee or not.")
 							+ " [NAME = " + this.name + "] " + e.getMessage());
 		}
 
@@ -455,7 +455,7 @@ public class AppAttendee {
 				 * thrown if there occurs an internal error.
 				 */
 				throw new DataException(
-						_("Cannot assign strength to the attendee.")
+						translate("Cannot assign strength to the attendee.")
 								+ " [NAME = " + this.name + "] "
 								+ e.getMessage());
 			}
@@ -544,7 +544,7 @@ public class AppAttendee {
 				 * thrown if there occurs an internal error.
 				 */
 				throw new DataException(
-						_("Cannot remove strength of the attendee.")
+						translate("Cannot remove strength of the attendee.")
 								+ " [NAME = " + this.name + "] "
 								+ e.getMessage());
 			}

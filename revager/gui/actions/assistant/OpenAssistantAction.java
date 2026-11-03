@@ -18,7 +18,7 @@
  */
 package org.revager.gui.actions.assistant;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -53,7 +53,7 @@ public class OpenAssistantAction extends AbstractAction {
 
 		putValue(Action.SMALL_ICON,
 				Data.getInstance().getIcon("menuAssistant_16x16.png"));
-		putValue(Action.NAME, _("Open RevAger Assistant"));
+		putValue(Action.NAME, translate("Open RevAger Assistant"));
 		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_M, Toolkit
 				.getDefaultToolkit().getMenuShortcutKeyMask()));
 	}
@@ -76,8 +76,8 @@ public class OpenAssistantAction extends AbstractAction {
 			int option = JOptionPane
 					.showConfirmDialog(
 							UI.getInstance().getMainFrame(),
-							GUITools.getMessagePane(_("There are unsaved changes in the review. Would you like to save them now?\n\nAttention: If you choose 'No' all unsaved information will get lost.")),
-							_("Question"), JOptionPane.YES_NO_CANCEL_OPTION,
+							GUITools.getMessagePane(translate("There are unsaved changes in the review. Would you like to save them now?\n\nAttention: If you choose 'No' all unsaved information will get lost.")),
+							translate("Question"), JOptionPane.YES_NO_CANCEL_OPTION,
 							JOptionPane.QUESTION_MESSAGE);
 
 			if (option == JOptionPane.YES_OPTION) {
@@ -91,7 +91,7 @@ public class OpenAssistantAction extends AbstractAction {
 			}
 		}
 
-		mainframe.setStatusMessage(_("No review in process."), false);
+		mainframe.setStatusMessage(translate("No review in process."), false);
 
 		mainframe.switchToClearMode();
 

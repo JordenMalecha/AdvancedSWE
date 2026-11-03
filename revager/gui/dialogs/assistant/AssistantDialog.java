@@ -18,7 +18,7 @@
  */
 package org.revager.gui.dialogs.assistant;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -80,11 +80,11 @@ public class AssistantDialog extends AbstractDialog {
 	/*
 	 * Strings
 	 */
-	private String firstScreenDescStrng = _("Welcome to RevAger!");
+	private String firstScreenDescStrng = translate("Welcome to RevAger!");
 
-	private String openRevDescStrng = _("You can select a mode and a review from the list of reviews. If your review isn't in the list, you can load it by choosing 'Select another review...'.");
+	private String openRevDescStrng = translate("You can select a mode and a review from the list of reviews. If your review isn't in the list, you can load it by choosing 'Select another review...'.");
 
-	private String addAttDescStrng = _("Here you can manage some personal details. They will be used during the review.");
+	private String addAttDescStrng = translate("Here you can manage some personal details. They will be used during the review.");
 
 	/*
 	 * 
@@ -94,7 +94,7 @@ public class AssistantDialog extends AbstractDialog {
 	private JButton finishBttn = new JButton();
 	private ImageIcon confirmIcon = Data.getInstance().getIcon(
 			"buttonOk_16x16.png");
-	private String confirmString = _("Confirm");
+	private String confirmString = translate("Confirm");
 
 	/**
 	 * Returns the currentPanel.
@@ -167,7 +167,7 @@ public class AssistantDialog extends AbstractDialog {
 		backBttn.addActionListener(ActionRegistry.getInstance().get(
 				GoToFirstScreenPnlAction.class.getName()));
 
-		setTitle(_("RevAger Assistant"));
+		setTitle(translate("RevAger Assistant"));
 
 		updateContents();
 
@@ -185,7 +185,7 @@ public class AssistantDialog extends AbstractDialog {
 	 */
 	private void defineWizardBttns() {
 
-		backBttn.setText(_("Back"));
+		backBttn.setText(translate("Back"));
 		backBttn.setIcon(Data.getInstance().getIcon("buttonBack_16x16.png"));
 
 		finishBttn.setText(confirmString);

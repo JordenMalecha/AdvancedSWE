@@ -18,7 +18,7 @@
  */
 package org.revager.gui.workers;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -86,7 +86,7 @@ public class AutoBackupWorker extends SwingWorker<Void, Void> {
 						@Override
 						public void run() {
 							for (AbstractFrame af : obsFrames) {
-								af.setStatusMessage(_("Auto backup done."),
+								af.setStatusMessage(translate("Auto backup done."),
 										false);
 							}
 						}
@@ -100,7 +100,7 @@ public class AutoBackupWorker extends SwingWorker<Void, Void> {
 					@Override
 					public void run() {
 						for (AbstractFrame af : obsFrames) {
-							af.setStatusMessage(_("Auto backup failed!"), false);
+							af.setStatusMessage(translate("Auto backup failed!"), false);
 						}
 					}
 				});

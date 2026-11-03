@@ -18,7 +18,7 @@
  */
 package org.revager.app;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.io.File;
 import java.text.DateFormat;
@@ -282,7 +282,7 @@ public class ImportExportControl {
 			exporter.writeToFile(filePath);
 		} else {
 			throw new ApplicationException(
-					_("There aren't any findings to export into a CSV file."));
+					translate("There aren't any findings to export into a CSV file."));
 		}
 
 		return new File(filePath);
@@ -330,7 +330,7 @@ public class ImportExportControl {
 			exporter.writeToFile(filePath);
 		} else {
 			throw new ApplicationException(
-					_("There aren't any findings to export into a CSV file."));
+					translate("There aren't any findings to export into a CSV file."));
 		}
 
 		return new File(filePath);
@@ -406,9 +406,9 @@ public class ImportExportControl {
 		Role.values();
 
 		for (Attendee att : attendees) {
-			invitationPackName = _("Review Invitation") + " "
+			invitationPackName = translate("Review Invitation") + " "
 					+ sdf.format(new Date().getTime()) + " " + att.getName()
-					+ " (" + _(att.getRole().toString()) + ")";
+					+ " (" + translate(att.getRole().toString()) + ")";
 
 			invitationPackName = FileTools.validateFileName(invitationPackName);
 

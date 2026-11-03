@@ -18,7 +18,7 @@
  */
 package org.revager.gui.workers;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.awt.Desktop;
 import java.io.File;
@@ -131,12 +131,12 @@ public class ExportCSVWorker extends SwingWorker<Void, Void> {
 						if (protFrame.isVisible()) {
 							protFrame
 									.setStatusMessage(
-											_("The findings have been exported into a CSV file successfully."),
+											translate("The findings have been exported into a CSV file successfully."),
 											false);
 						} else {
 							mainFrame
 									.setStatusMessage(
-											_("The findings have been exported into a CSV file successfully."),
+											translate("The findings have been exported into a CSV file successfully."),
 											false);
 						}
 					}
@@ -156,7 +156,7 @@ public class ExportCSVWorker extends SwingWorker<Void, Void> {
 
 				JOptionPane.showMessageDialog(UI.getInstance()
 						.getExportCSVDialog(), GUITools.getMessagePane(e
-						.getMessage()), _("Error"), JOptionPane.ERROR_MESSAGE);
+						.getMessage()), translate("Error"), JOptionPane.ERROR_MESSAGE);
 			}
 
 		}

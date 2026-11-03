@@ -18,7 +18,7 @@
  */
 package org.revager.gui.workers;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -68,7 +68,7 @@ public class NewReviewWorker extends SwingWorker<Void, Void> {
 			}
 		});
 
-		mainframe.setStatusMessage(_("Creating new review ..."), true);
+		mainframe.setStatusMessage(translate("Creating new review ..."), true);
 
 		try {
 			Application.getInstance().getApplicationCtl().newReview();
@@ -79,7 +79,7 @@ public class NewReviewWorker extends SwingWorker<Void, Void> {
 				@Override
 				public void run() {
 					mainframe.setStatusMessage(
-							_("New review created successfully."), false);
+							translate("New review created successfully."), false);
 
 					if (instantReview) {
 						UI.getInstance().getEditProductDialog()
@@ -93,7 +93,7 @@ public class NewReviewWorker extends SwingWorker<Void, Void> {
 									.getInstance()
 									.getReviewMgmt()
 									.setReviewName(
-											_("Review of") + " " + prodName);
+											translate("Review of") + " " + prodName);
 						}
 
 						/*
@@ -117,7 +117,7 @@ public class NewReviewWorker extends SwingWorker<Void, Void> {
 			SwingUtilities.invokeLater(new Runnable() {
 				@Override
 				public void run() {
-					mainframe.setStatusMessage(_("No review in process."),
+					mainframe.setStatusMessage(translate("No review in process."),
 							false);
 
 					mainframe.switchToClearMode();
@@ -126,8 +126,8 @@ public class NewReviewWorker extends SwingWorker<Void, Void> {
 
 			JOptionPane.showMessageDialog(
 					UI.getInstance().getMainFrame(),
-					GUITools.getMessagePane(_("Cannot create new review file.")
-							+ "\n\n" + e.getMessage()), _("Error"),
+					GUITools.getMessagePane(translate("Cannot create new review file.")
+							+ "\n\n" + e.getMessage()), translate("Error"),
 					JOptionPane.ERROR_MESSAGE);
 
 			SwingUtilities.invokeLater(new Runnable() {

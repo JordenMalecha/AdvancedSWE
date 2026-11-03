@@ -18,7 +18,7 @@
  */
 package org.revager.gui;
 
-import static org.revager.app.model.Data._;
+import static org.revager.app.model.Data.translate;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -106,7 +106,7 @@ public class StrengthPopupWindow extends JDialog {
 
 		// setUndecorated(true);
 		setResizable(false);
-		setTitle(_("RevAger"));
+		setTitle(translate("RevAger"));
 
 		setModal(true);
 
@@ -133,13 +133,13 @@ public class StrengthPopupWindow extends JDialog {
 			}
 		} catch (DataException e) {
 			JOptionPane.showMessageDialog(null,
-					GUITools.getMessagePane(e.getMessage()), _("Error"),
+					GUITools.getMessagePane(e.getMessage()), translate("Error"),
 					JOptionPane.ERROR_MESSAGE);
 		}
 
 		selCateList = new ArrayList<String>();
 
-		JLabel labelFilter = new JLabel(_("Filter:"));
+		JLabel labelFilter = new JLabel(translate("Filter:"));
 
 		filterTxtFld = new JTextField();
 		filterTxtFld.addKeyListener(new KeyListener() {
@@ -160,7 +160,7 @@ public class StrengthPopupWindow extends JDialog {
 		JButton buttonClear = GUITools.newImageButton(Data.getInstance()
 				.getIcon("clear_22x22_0.png"),
 				Data.getInstance().getIcon("clear_22x22.png"));
-		buttonClear.setToolTipText(_("Reset filter"));
+		buttonClear.setToolTipText(translate("Reset filter"));
 		buttonClear.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -199,7 +199,7 @@ public class StrengthPopupWindow extends JDialog {
 				"buttonCancel_24x24_0.png"));
 		buttonAbort.setRolloverIcon(Data.getInstance().getIcon(
 				"buttonCancel_24x24.png"));
-		buttonAbort.setToolTipText(_("Abort"));
+		buttonAbort.setToolTipText(translate("Abort"));
 		buttonAbort.addActionListener(new StrengthPopupWindowAction(this,
 				ButtonClicked.ABORT));
 
@@ -208,7 +208,7 @@ public class StrengthPopupWindow extends JDialog {
 				.getIcon("buttonOk_24x24_0.png"));
 		buttonConfirm.setRolloverIcon(Data.getInstance().getIcon(
 				"buttonOk_24x24.png"));
-		buttonConfirm.setToolTipText(_("Confirm"));
+		buttonConfirm.setToolTipText(translate("Confirm"));
 		buttonConfirm.addActionListener(new StrengthPopupWindowAction(this,
 				ButtonClicked.OK));
 
@@ -289,7 +289,7 @@ public class StrengthPopupWindow extends JDialog {
 			}
 		} catch (Exception exc) {
 			JOptionPane.showMessageDialog(null,
-					GUITools.getMessagePane(exc.getMessage()), _("Error"),
+					GUITools.getMessagePane(exc.getMessage()), translate("Error"),
 					JOptionPane.ERROR_MESSAGE);
 		}
 
